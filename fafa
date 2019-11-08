@@ -1,0 +1,42 @@
+def bintodeci():
+    lstbinaire = []
+    nbBinaire = int(input("Entre le nombre de bit(s) "))
+
+    for loop in range(nbBinaire):
+        print("Entrez votre binaire bit par bit")
+        binaire = int(input())
+
+        lstbinaire.append(binaire)
+    print(lstbinaire)
+    lstbinaire.reverse()
+
+    #---------
+
+    lstmultiplicateur = []
+    multi = len(lstbinaire)
+    n = 0
+
+    for loop in range(multi):
+        lstmultiplicateur.append(2**n)
+        n += 1
+
+    #------
+
+    lstfinal = []
+    t = 0
+    for loop in range(multi):
+        valBin = lstbinaire[t]
+        if valBin == 0:
+            lstfinal.append(0)
+        if valBin == 1:
+            lstfinal.append(lstmultiplicateur[t])
+     n += 1
+
+    c = 0
+    for loop in range(multi):
+        resultat = int(lstfinal[c] + resultat)
+        c + 1
+
+    print(resultat)
+
+

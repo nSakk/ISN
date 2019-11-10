@@ -1,0 +1,111 @@
+while True:
+    try:
+        menu = int(input("Binaire: 0, Décimal: 1 --> : "))
+        if menu != 0 and menu != 1:
+            print("Il faut choisir entre 0 et 1, et pas autre chose =)")
+        else:
+            break
+    except ValueError:
+        print("Vous avez entré une (des) lettre(s), il faut choisir entre 0, ou 1")
+#Pas TOUCHE : BON
+#-----------------------------------------------------------------------
+def decitobinaire():
+    while True:
+        try:
+            deci = int(input("Entrez la valeur que vous voudrez convertir en langage binaire: "))
+            break
+        except ValueError:
+            print("Vous avez entré une/des lettre/s, il faut choisir un nombre")
+    resultat = " "
+
+    while deci != 0:
+        quotient = deci // 2
+        reste = deci % 2
+        resultat += str(reste)
+        deci = quotient
+    res = " "
+    for i in range(len(resultat) - 1, -1, -1):
+        res += resultat[i]
+    print("Votre valeur en binaire est égale à", res, ".")
+#Pas TOUCHE : BON
+#---------------------------------
+def binairetodeci():
+    lstbinaire = []
+    while True:
+        try:
+            nbBinaire = int(input("Entrez le nombre de bit/s "))
+            break
+        except ValueError:
+            print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
+
+    for loop in range(nbBinaire):
+        print("Entrez votre binaire bit par bit")
+        while True:
+            try:
+                binaire = int(input())
+                if binaire != 0 and binaire != 1:
+                    print("Il faut choisir entre 0 et 1, et pas plus =)")
+    #            elif len(binaire) != 1:        Comprend pas pq ça plante
+    #                print(" ziziziiz =)")
+                else:
+                    break
+            except ValueError:
+                print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
+
+        lstbinaire.append(binaire)
+
+    if lstbinaire[0] == 0:
+        signe = 1
+        lstbinaire.pop[0]
+    elif lstbinaire[0] == 1
+        signe = -1 
+        lstbinaire.pop[0]
+
+
+    lstbinaire.reverse()
+    print(lstbinaire)
+
+    lstmultiplicateur = []
+    multi = len(lstbinaire)
+    n = 0
+    for loop in range(multi):
+        lstmultiplicateur.append(2 ** n)
+        n += 1
+    print(lstmultiplicateur)
+
+    lstfinal = []
+    t = 0
+    for loop in range(multi):
+        valBin = lstbinaire[t]
+        if valBin == 0:
+            lstfinal.append(0)
+        if valBin == 1:
+            lstfinal.append(lstmultiplicateur[t])
+        t += 1
+        print(lstfinal)
+
+
+#-------------- Bug là -------------
+
+    resultat = 0
+    o = 0
+    for loop in range(nbBinaire):
+        if lstfinal[o] != 0:
+            resultat = resultat + lstfinal[o]
+            o += 1
+            print(resultat)
+    resultat = resultat * signe
+    print("Votre valeur décimale est egale à", resultat, ".")
+
+
+
+#-----------------------------------------------------------------------
+if menu == 0:
+    decitobinaire()
+
+if menu == 1:
+    binairetodeci()
+
+a = int(input())
+
+#Pas TOUCHE : BON

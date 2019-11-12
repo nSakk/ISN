@@ -44,9 +44,9 @@ def binairetodeci():
             try:
                 binaire = int(input())
                 if binaire != 0 and binaire != 1:
-                    print("Il faut choisir entre 0 et 1, et pas plus =)")
-    #            elif len(binaire) != 1:        Comprend pas pq ça plante
-    #                print(" ziziziiz =)")
+                    print("Il faut choisir entre 0 et 1, et pas plus")
+                if len(str(binaire)) != 1:
+                    print("Il ne faut qu'un bit")
                 else:
                     break
             except ValueError:
@@ -89,7 +89,7 @@ def binairetodeci():
 
     resultat = 0
     o = 0
-    for loop in range(nbBinaire):
+    for loop in range(len(lstfinal)):
         resultat = resultat + lstfinal[o]
         o += 1
         print(resultat)

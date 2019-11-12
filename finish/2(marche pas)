@@ -56,10 +56,10 @@ def binairetodeci():
 
     if lstbinaire[0] == 0:
         signe = 1
-        lstbinaire.pop[0]
-    elif lstbinaire[0] == 1
-        signe = -1 
-        lstbinaire.pop[0]
+        del lstbinaire[0]
+    if lstbinaire[0] == 1:
+        signe = -1
+        del lstbinaire[0]
 
 
     lstbinaire.reverse()
@@ -90,10 +90,10 @@ def binairetodeci():
     resultat = 0
     o = 0
     for loop in range(nbBinaire):
-        if lstfinal[o] != 0:
-            resultat = resultat + lstfinal[o]
-            o += 1
-            print(resultat)
+        resultat = resultat + lstfinal[o]
+        o += 1
+        print(resultat)
+
     resultat = resultat * signe
     print("Votre valeur décimale est egale à", resultat, ".")
 

@@ -2,17 +2,17 @@ while True:
     try:
         menu = int(input("Décimal vers Binaire: 0, Binaire vers Décimal: 1 --> : "))
         if menu != 0 and menu != 1:
-            print("Il faut choisir entre 0 et 1, et pas autre chose =)")
+            print("Il faut choisir entre 0 et 1")
         else:
             break
     except ValueError:
-        print("Vous avez entré une (des) lettre(s), il faut choisir entre 0, ou 1")
+        print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
 #Menu
 #-----------------------------------------------------------------------
 def decitobinaire():
     while True:
         try:
-            deci = int(input("Entrez la valeur que vous voudrez convertir en langage binaire: "))
+            deci = int(input("Entrez la valeur décimale que vous voudrez convertir en langage binaire: "))
             break
         except ValueError:
             print("Vous avez entré une/des lettre/s, il faut choisir un nombre")
@@ -44,8 +44,8 @@ def binairetodeci():
             try:
                 binaire = int(input())
                 if binaire != 0 and binaire != 1:
-                    print("Il faut choisir entre 0 et 1, et pas plus")
-                if len(str(binaire)) != 1:
+                    print("Il faut choisir entre 0 et 1")
+                if len(str(binaire)) != 1:  # Pas sur que ça fonctionne parfaitement
                     print("Il ne faut qu'un bit")
                 else:
                     break

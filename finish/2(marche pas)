@@ -29,9 +29,6 @@ def decitobinaire():
     print("Votre valeur en binaire est égale à", res, ".")
 #Pas TOUCHE : BON
 #---------------------------------
-"""
-Je te brise les genoux
-"""
     
 def binairetodeci():
     lstbinaire = []

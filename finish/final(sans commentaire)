@@ -45,7 +45,7 @@ def binairetodeci():
                 binaire = int(input())
                 if binaire != 0 and binaire != 1:
                     print("Il faut choisir entre 0 et 1")
-                if len(str(binaire)) != 1:  # Pas sur que ça fonctionne parfaitement
+                elif len(str(binaire)) != 1:  # Pas sur que ça fonctionne parfaitement
                     print("Il ne faut qu'un bit")
                 else:
                     break

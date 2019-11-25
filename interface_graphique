@@ -1,0 +1,63 @@
+# coding: utf-8
+
+from tkinter import *
+
+fenetre = Tk()
+fenetre.title("Convertisseur Binaire")
+fenetre.geometry("500x500")
+fenetre.iconbitmap("icone.ico")
+
+
+
+#---------------------
+
+Frame1 = Frame(fenetre, borderwidth=2, relief=GROOVE)
+Frame1.pack(side=LEFT, padx=30, pady=30)
+
+Frame2 = Frame(fenetre, borderwidth=2, relief=GROOVE)
+Frame2.pack(side=RIGHT, padx=30, pady=30)
+
+#---------------------
+label = Label(Frame1, text="Décimal vers Binaire")
+label.pack()
+label = Label(Frame2, text="Binaire vers Décimal")
+label.pack()
+label = Label(Frame2, text="")
+label.pack()
+label = Label(Frame2, text="Nombres de bits")
+label.pack()
+
+#--------------
+# entrée
+value1 = StringVar()
+value1.set("texte par défaut")
+entree1 = Entry(Frame1, textvariable=str, width=30)
+entree1.pack()
+
+value2 = StringVar()
+value2.set("texte par défaut")
+entree2 = Entry(Frame2, textvariable=str, width=30)
+entree2.pack()
+#----------------
+bouton1=Button(Frame1, text="Convertion")
+bouton1.pack()
+
+bouton1=Button(Frame2, text="Valider")
+bouton1.pack()
+label = Label(Frame2, text="")
+label.pack()
+
+
+
+
+
+label = Label(Frame2, text="Votre Binaire")
+label.pack()
+value3 = StringVar()
+value3.set("texte par défaut")
+entree3 = Entry(Frame2, textvariable=str, width=30)
+entree3.pack()
+bouton2=Button(Frame2, text="Convertion")
+bouton2.pack()
+
+fenetre.mainloop()

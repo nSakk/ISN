@@ -1,4 +1,4 @@
-while True:
+hile True:
     try:
         menu = int(input("Décimal vers Binaire: 0, Binaire vers Décimal: 1 --> : "))
         if menu != 0 and menu != 1:
@@ -7,8 +7,17 @@ while True:
             break
     except ValueError:
         print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
-#Menu
-#-----------------------------------------------------------------------
+
+#Ligne 1 : On ouvre une boucle infini pour pouvoir faire la verfication de l'input autant de fois que néccessaire
+#Ligne 2 : (+ 8) : Permet de gérer les erreurs et les exceptions
+#Ligne 3 : On demande à l'utilisteur la module de calcul qu'il veut utiliser
+#Ligne 4 + 5 + 6 : Verifie si la variable est differente de 0 ou 1
+#   Si oui alors on affiche un message et on recommence la boucle ( grâce à try
+#  Si non (else), alors les valeurs entrés correspondent à celle attendu et donc on coupe la boucle try et while True et on peut enfin entrer dans la suite du programme
+#Ligne 8 : Except ValueError, permet de redemander à l'utilistauer une valeur si celle entrée précedament est d'un type different au type de la valeur demandé, dans notre cas un int
+
+# Menu
+# -----------------------------------------------------------------------
 def decitobinaire():
     while True:
         try:
@@ -27,13 +36,18 @@ def decitobinaire():
     for i in range(len(resultat) - 1, -1, -1):
         res += resultat[i]
     print("Votre valeur en binaire est égale à", res, ".")
-#Fonction Decimal vers Binaire
-#---------------------------------
+
+#Ligne 22 : On creer une fonction nommé decitobinaire(), on va pouvoir appeler le bout de code en dessous quand on voudra dans la suite du programme
+#Ligne 23 à 28 : Même principe de la vérification de la valeur entré, que précedamment
+#Ligne 28 : On creer une variable resultat
+
+# Fonction Decimal vers Binaire
+# ---------------------------------
 def binairetodeci():
     lstbinaire = []
     while True:
         try:
-            nbBinaire = int(input("Entrez le nombre de bit/s "))     
+            nbBinaire = int(input("Entrez le nombre de bit/s "))
             break
         except ValueError:
             print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
@@ -45,7 +59,7 @@ def binairetodeci():
                 binaire = int(input())
                 if binaire != 0 and binaire != 1:
                     print("Il faut choisir entre 0 et 1")
-                elif len(str(binaire)) != 1:  # Pas sur que ça fonctionne parfaitement
+                if len(str(binaire)) != 1:  # Pas sur que ça fonctionne parfaitement
                     print("Il ne faut qu'un bit")
                 else:
                     break
@@ -53,9 +67,8 @@ def binairetodeci():
                 print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
 
         lstbinaire.append(binaire)
-        
+
     lstbinaire.reverse()
-    print(lstbinaire)
 
     lstmultiplicateur = []
     multi = len(lstbinaire)
@@ -63,7 +76,6 @@ def binairetodeci():
     for loop in range(multi):
         lstmultiplicateur.append(2 ** n)
         n += 1
-    print(lstmultiplicateur)
 
     lstfinal = []
     t = 0
@@ -74,24 +86,24 @@ def binairetodeci():
         if valBin == 1:
             lstfinal.append(lstmultiplicateur[t])
         t += 1
-        print(lstfinal)
 
     resultat = 0
     o = 0
     for loop in range(len(lstfinal)):
         resultat = resultat + lstfinal[o]
         o += 1
-        print(resultat)
 
-    print("Votre valeur décimale est egale à", resultat, ".")
-#Fonction Binaire vers Décimal
-#-----------------------------------------------------------------------
+    print("Votre valeur décimale est égale à", resultat, ".")
+
+
+# Fonction Binaire vers Décimal
+# -----------------------------------------------------------------------
 if menu == 0:
     decitobinaire()
 
 if menu == 1:
     binairetodeci()
 
-a = int(input())
+stop = input("Pour quitter le programme, appuyez sur une touche, et validez : ")
 
-#Choix fonction
+# Choix fonction

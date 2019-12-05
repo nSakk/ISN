@@ -1,4 +1,4 @@
-hile True:
+while True:
     try:
         menu = int(input("Décimal vers Binaire: 0, Binaire vers Décimal: 1 --> : "))
         if menu != 0 and menu != 1:
@@ -8,13 +8,13 @@ hile True:
     except ValueError:
         print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
 
-#Ligne 1 : On ouvre une boucle infini pour pouvoir faire la verfication de l'input autant de fois que néccessaire
+#Ligne 1 : On ouvre une boucle infini pour pouvoir faire la vérification de l'input autant de fois que nécessaire
 #Ligne 2 : (+ 8) : Permet de gérer les erreurs et les exceptions
-#Ligne 3 : On demande à l'utilisteur la module de calcul qu'il veut utiliser
-#Ligne 4 + 5 + 6 : Verifie si la variable est differente de 0 ou 1
+#Ligne 3 : On demande à l'utilisateur la module de calcul qu'il veut utiliser
+#Ligne 4 + 5 + 6 : Verifie si la variable est différente de 0 ou 1
 #   Si oui alors on affiche un message et on recommence la boucle ( grâce à try
 #  Si non (else), alors les valeurs entrés correspondent à celle attendu et donc on coupe la boucle try et while True et on peut enfin entrer dans la suite du programme
-#Ligne 8 : Except ValueError, permet de redemander à l'utilistauer une valeur si celle entrée précedament est d'un type different au type de la valeur demandé, dans notre cas un int
+#Ligne 8 : Except ValueError, permet de redemander à l'utilisateur une valeur si celle entrée précédemment est d'un type différent au type de la valeur demandé, dans notre cas un int
 
 # Menu
 # -----------------------------------------------------------------------
@@ -40,6 +40,8 @@ def decitobinaire():
 #Ligne 22 : On creer une fonction nommé decitobinaire(), on va pouvoir appeler le bout de code en dessous quand on voudra dans la suite du programme
 #Ligne 23 à 28 : Même principe de la vérification de la valeur entré, que précedamment
 #Ligne 28 : On creer une variable resultat
+#Ligne 30 à 34 tant que la valeur entrée est différente de 0 alors:
+#dans une variable quotient
 
 # Fonction Decimal vers Binaire
 # ---------------------------------

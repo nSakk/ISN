@@ -1,0 +1,15 @@
+API -->
+  SPORT {
+          FOOTBALL
+          TENNIS
+          BASKETBALL
+          VOLLEY
+          CYCLISME
+         }
+         https://www.sportradar.com/media/data-feeds-and-services/sports-api/
+         
+  OPENWEATHERMAP
+  NEWSAPI (MONDIAL)
+  NEWSAPI (LOCAL)
+  TWITTER API
+  INSTAGRAM API

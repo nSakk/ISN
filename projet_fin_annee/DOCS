@@ -10,7 +10,14 @@ API -->
          https://www.sportradar.com/media/data-feeds-and-services/sports-api/
          
   OPENWEATHERMAP
+    AFFICHER LA METEO, AVEC LE SYMBOLE, LA TEMPERATURE
+    
   NEWSAPI (MONDIAL)
+    DERNIERE ARTICLE DU MONDE.FR     
+    
   NEWSAPI (LOCAL)
-  TWITTER API https://developer.twitter.com/en/docs
+  
+  TWITTER API https://tweepy.readthedocs.io/en/latest/getting_started.html
+      AFFICHER LES DERNIERS TWEETS DE SA TIMELINE OU AVEC DES TAGS
+      
   INSTAGRAM API https://www.instagram.com/developer/

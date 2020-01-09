@@ -45,30 +45,23 @@ def decitobinaire():
 
 # Fonction Decimal vers Binaire
 # ---------------------------------
-def binairetodeci():
-    lstbinaire = []
+ef binairetodeci():
     while True:
         try:
-            nbBinaire = int(input("Entrez le nombre de bit/s "))
-            break
+            lstbinaire = list(input())
+            w = 0
+
+
+            for loop in range(len(lstbinaire)):
+                pos = int(lstbinaire[w])
+                if pos == 0 or pos == 1:
+                  print()
+                else:
+                    print("Ce bit n'est pas correct {} .".format(pos))
+                w += 1
         except ValueError:
             print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
-
-    for loop in range(nbBinaire):
-        print("Entrez votre binaire bit par bit")
-        while True:
-            try:
-                binaire = int(input())
-                if binaire != 0 and binaire != 1:
-                    print("Il faut choisir entre 0 et 1")
-                if len(str(binaire)) != 1:  # Pas sur que ça fonctionne parfaitement
-                    print("Il ne faut qu'un bit")
-                else:
-                    break
-            except ValueError:
-                print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
-
-        lstbinaire.append(binaire)
+    print("On est bino")
 
     lstbinaire.reverse()
 

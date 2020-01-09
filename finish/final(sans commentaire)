@@ -55,14 +55,28 @@ def binairetodeci():
         try:
             lstbinaire = list(input("Entrez votre mot binaire"))
             w = 0
+            p = True
+            temp = len(lstbinaire)
 
-            for loop in range(len(lstbinaire)):
+            for loop in range(temp):
                 pos = int(lstbinaire[w])
-                if pos != 0 or pos != 1:
+                if pos != 1 and pos != 0 :
                     print("Ce bit n'est pas correct : {} .".format(pos))
+                    p = False
+                else:
+                    pause = 0   #Pour un temps de pause
                 w += 1
+
+                if p == False:
+                    lstbinaire = list(input("Entrez votre mot binaire"))
+                    p = True
+
+            break
+
+
         except ValueError:
             print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
+
 
     lstbinaire.reverse()
 
@@ -92,9 +106,11 @@ def binairetodeci():
     print("Votre valeur décimale est égale à", resultat, ".")
 
 """
--
--
--
+Il y a encore uen verification de l'input:
+    On entre une le mot binaire d'un coup, directement dans une liste et on fait des autant de tour de boucle qu'il y a de bit:
+        Dans ces tours de boucles on convertie les valeur chacune leurs tours de la en int dans une variable pour pouvoir les soumettre aux verification
+        On regarde si le valeur a la place w (notre compteur) est differente de 0 ou 1, si c'est le cas on va donner dans une variable, False et afficher un message d'erreur, si il n'est pas different de 0 ou 1, on peut passer à la suite
+        On verifira à la fin de la boucle si notre variable est egale à True ou a False, si elle est egale à False, on va redemander une saisie du mot binaire, si elle est egale à True, on ne rentre pas de le if
 La suite se passe en plusieurs étapes
 ->La premiere etape sert à créer une liste, de la même taile que l'input, dans laquelle on va inserer des puissances de 2
     On creer une boucle qui tournera autant de fois que le mot binaire de l'input possede de bit

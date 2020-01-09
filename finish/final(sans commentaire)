@@ -7,17 +7,16 @@ while True:
             break
     except ValueError:
         print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
-
-#Ligne 1 : On ouvre une boucle infini pour pouvoir faire la vérification de l'input autant de fois que nécessaire
-#Ligne 2 : (+ 8) : Permet de gérer les erreurs et les exceptions
-#Ligne 3 : On demande à l'utilisateur la module de calcul qu'il veut utiliser
-#Ligne 4 + 5 + 6 : Verifie si la variable est différente de 0 ou 1
-#   Si oui alors on affiche un message et on recommence la boucle ( grâce à try
-#  Si non (else), alors les valeurs entrés correspondent à celle attendu et donc on coupe la boucle try et while True et on peut enfin entrer dans la suite du programme
-#Ligne 8 : Except ValueError, permet de redemander à l'utilisateur une valeur si celle entrée précédemment est d'un type différent au type de la valeur demandé, dans notre cas un int
-
+"""
+Cette boucle permet à l'utilisateur d'appeller le programme de convertion qu'il veut, Décimal vers Binaire ou l'inverse, mais surtout cette boucle permet de s'en assurer:
+Ici on verifie que l'utilisateur entre bien, un 0, ou un 1; et donc après l'input, on lui fait passer 2 test :
+-> La valeur entrée n'est pas différente de 1 ou 0, si c'est le cas, la boucle se coupe(break) et donc on peut continuer le programme, si non, on renvoi un message d'erreur on redemande une imput
+-> La valeur est bien de type int, pas autre chose, le except ValueError permet de redemander un input, si la valeur entrée n'est pas de type int
+"""
 # Menu
 # -----------------------------------------------------------------------
+# -----------------------------------------------------------------------
+
 def decitobinaire():
     while True:
         try:
@@ -25,43 +24,45 @@ def decitobinaire():
             break
         except ValueError:
             print("Vous avez entré une/des lettre/s, il faut choisir un nombre")
-    resultat = " "
-
+    result = []
     while deci != 0:
         quotient = deci // 2
         reste = deci % 2
-        resultat += str(reste)
+        result += str(reste)
         deci = quotient
-    res = " "
-    for i in range(len(resultat) - 1, -1, -1):
-        res += resultat[i]
-    print("Votre valeur en binaire est égale à", res, ".")
-
-#Ligne 22 : On creer une fonction nommé decitobinaire(), on va pouvoir appeler le bout de code en dessous quand on voudra dans la suite du programme
-#Ligne 23 à 28 : Même principe de la vérification de la valeur entré, que précedamment
-#Ligne 28 : On creer une variable resultat
-#Ligne 30 à 34 tant que la valeur entrée est différente de 0 alors:
-#dans une variable quotient
-
+    result.reverse()
+    print("Votre valeur en binaire est égale à", result, ".")
+"""
+Ici on effectue a peu près la même verification que au dessus mais cette fois si dans une fonction nommé decitobinaire() que l'on pourra appelé quand on veut
+On entre une valeur a convertir en binaire, et qui serra redemandé si celle ci ne se trouve pas etre un int (encore grace à except ValueError)
+Une fois que la saisie est validé on peut entré dans le calcul qui nous permettra d'obtenir notre mot binaire
+-> Création d'une liste nommmé result dans laquelle on ira stocker notre mot binaire
+-> Boucle qui tant que l'input est different de 0 tourne encore
+    -> Dans cette boucle on focntionne par étape
+    - D'abord on recupere dans la variable quotient le resultat de la division par 2 de l'input, mais uniquement la partie entiére de la division
+    - Ensuite dans une variable reste, comme son nom l'indique on recupere le reste de la divison par 2 de l'input
+    - On ajoute la valeur du reste que l'on a obtenu précédament dans notre liste result, cette valeur etant un int, et pour pouvoir l'ajouter dans notre liste, nous devons imperativement la convertir en string, c'est ç cela que sert le str(reste)
+    - Et pour finir un tour de boucle on donne à l'input la valeur du quotient pour continuer à pouvoir recuperer les bits dans la liste result
+Un fois la boucle terminer, nous inversons l'ordre initial des bits pour obtenir notre mot binaire dans le bon sens
+Et pour finir nous affichons le mot binaire en console
+"""
 # Fonction Decimal vers Binaire
 # ---------------------------------
-ef binairetodeci():
+# ---------------------------------
+
+def binairetodeci():
     while True:
         try:
-            lstbinaire = list(input())
+            lstbinaire = list(input("Entrez votre mot binaire"))
             w = 0
-
 
             for loop in range(len(lstbinaire)):
                 pos = int(lstbinaire[w])
-                if pos == 0 or pos == 1:
-                  print()
-                else:
-                    print("Ce bit n'est pas correct {} .".format(pos))
+                if pos != 0 or pos != 1:
+                    print("Ce bit n'est pas correct : {} .".format(pos))
                 w += 1
         except ValueError:
             print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
-    print("On est bino")
 
     lstbinaire.reverse()
 
@@ -90,7 +91,29 @@ ef binairetodeci():
 
     print("Votre valeur décimale est égale à", resultat, ".")
 
-
+"""
+-
+-
+-
+La suite se passe en plusieurs étapes
+->La premiere etape sert à créer une liste, de la même taile que l'input, dans laquelle on va inserer des puissances de 2
+    On creer une boucle qui tournera autant de fois que le mot binaire de l'input possede de bit
+    Dans cette boucle on ajoutera  2 ** n, avec n qui commence à 0
+    Et ensuite, a chaque tour de boucle, on incrémentera n de 1
+    Donc pour un mot binaire de 4 bits, on obtiendra la liste suivant; [2**0; 2**1; 2**2; 2**3]
+->la deuxieme etape a pour but de creer une liste qui a correspondra à la liste binaire de l'input, c'est à dire que si dans la liste initiale il y a un 0 au 3eme cran, dans notre nouvelle liste il n'y aura pas de 2**2
+    Tout d'abord on initialise deux nouvelle variable, une liste, lstfinal, et un compteur qu'on initialisera à 0
+    On entre dans un boucle qui comme prédemamment tournera autant de fois que le mot biniare possede de bit
+    Dans cette boucle on verifira si la valeur à la place [t] de la liste input est un 0 ou un 1. Pour cela on prend un variable qui aura pour valeur la bit du mot binaire à la place t; donc initialement 0
+    Et cette variable rentrera soit dans le boucle == 0 ou == 1
+    Si elle entre dans le if == 0, alors on ajoutera à notre nouvelle liste vierge, 0
+    Si elle entre dans le if == 1, alors on ajoutera à notre nouvelle liste vierge la valeur correspondante de notre liste remplie de puissance de 2
+->Et la derniere etape correspond à celle qui va nous permettre d'afficher notre valeur décimale correspondate à la notre mot binaire entré initialement
+    On initialise comme au dessus 2 nouvelles varibles, une, resultat qui vaut 0, et encore un compteur, o, valant egalement 0
+    On ouvre une boucle qui encore tournera autant de fois que la taile du mot binaire
+    Dans cette on ajoutera dans resultat, la valeur de resultat plus celle de la valeur de la listefinal correspondant à l'emplacement que designera la compteur o, même compteur que l'on incrémentera de 1 à chaque tout de boucle
+    Pour enfin obtenir la valeur de notre mot binaire que l'on retournera en console, 
+"""
 # Fonction Binaire vers Décimal
 # -----------------------------------------------------------------------
 if menu == 0:
@@ -102,3 +125,11 @@ if menu == 1:
 stop = input("Pour quitter le programme, appuyez sur une touche, et validez : ")
 
 # Choix fonction
+"""
+Après avoir entré la valeur correspondante au convertisseur voulu, nous entrons dans ces deux boucles if
+qui vont appeller la focntion correspondate à la valeur entrée
+0 Pour la focntion décimal vers binaire
+1 Pour la fonction biniare vers décimal 
+Et donc pour finir nous laissons un input qui permet au programme de se mettre en pause pour que l'utilisateur ai le temps de regarder ses resultats
+Pour quitter comme écrit il suffift d'entrer un touche est valider
+"""

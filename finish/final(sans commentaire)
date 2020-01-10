@@ -70,10 +70,7 @@ def binairetodeci():
                 if p == False:
                     lstbinaire = list(input("Entrez votre mot binaire"))
                     p = True
-
             break
-
-
         except ValueError:
             print("Vous avez entré une/des lettre/s, il faut choisir entre 0, ou 1")
 

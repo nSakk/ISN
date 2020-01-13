@@ -10,7 +10,7 @@ t=data['main']['temp']
 w=data['name']
 weather=data['weather'][0]['description']
 print("La ville est {}".format(w))
-print("La témpérature est de {} degrés C".format(t-273.15))
+print("La témpérature est de {} degrés C".format(round(t-273.15)))
 print(weather)
 print("#-------------------------------------------")
 heure = datetime.now().time()
@@ -27,6 +27,7 @@ a = 0
 for loop in range(20):
     print(a+1, " ", data['articles'][a]['title'])
     print(data['articles'][a]['url'])
+    print("#----------------")
     a += 1
 
 p = input("Appuiez sur entrée pour continuer")

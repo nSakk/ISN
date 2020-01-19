@@ -2,7 +2,48 @@
   background: linear-gradient(#034693, white);
 }
 
-.effec {
-  width: 260px;
-  height: 260px;
+
+.poste{
+	position: absolute; right;
+}
+
+
+.gardien{
+	color: red;
+}
+.def{
+	color: blue;
+}
+.mid{
+	color: green;
+}
+.striker{
+	color: yellow;
+}
+
+.menu ul {
+ margin:0;
+ padding:0;
+ list-style-type:none;
+ text-align:center;
+ }
+
+.menu ul li {
+ float:left;
+ margin:auto;
+ padding:0;
+ background-color:black;
+ }
+
+.menu ul li a {
+ display:block;
+ width:100px;
+ color:white;
+ text-decoration:none;
+ padding:5px;
+ }
+
+
+.logo{
+	float: right;
 }

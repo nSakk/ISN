@@ -1,0 +1,55 @@
+from tkinter import *
+from random import *
+maFenetre = Tk()
+couleur = "red"
+temp = [""]
+c = 0
+couleurs = ['red','purple', 'pink', 'lightpink', 'yellow']
+
+
+#Fonctions
+
+def change():
+    global couleur
+    couleur = choice(couleurs)
+    
+
+def rectangle():
+    global couleur
+    x1=randint(0,400)
+    x2=randint(0,400)
+    y1=randint(0,400)
+    y2=randint(0,400)
+    fenetreDessin.create_rectangle(x1, y1, x2, y2, fill=couleur)
+    change()
+    
+def quitter():
+    maFenetre.quit()
+    maFenetre.destroy()
+     
+ 
+#Création des widgets
+ 
+ 
+fenetreDessin = Canvas(maFenetre, height=400, width=300)
+
+boutonChange = Button(maFenetre, text='Changer de couleur', command=change)
+boutonNew = Button(maFenetre, text='Nouveau Rectangle', command=rectangle)
+boutonQuit = Button(maFenetre, text='Quitter', command=quitter)
+compteur = Label(maFenetre, text = 0)
+
+#Affichage des widgets
+
+boutonChange.grid(column = 3, row = 0,)
+boutonNew.grid(column = 3, row = 1,)
+boutonQuit.grid(column = 3, row = 3,)
+fenetreDessin.grid(column = 0, row = 0, columnspan = 3)
+compteur.grid(column = 3, row = 2)
+
+
+#Programme Principal
+if couleur == 'red':
+    c += 1
+    compteur.configure(c)
+
+maFenetre.mainloop()

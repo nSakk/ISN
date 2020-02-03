@@ -2,7 +2,6 @@ from tkinter import *
 from random import *
 maFenetre = Tk()
 couleur = "red"
-temp = [""]
 c = 0
 couleurs = ['red','purple', 'pink', 'lightpink', 'yellow']
 
@@ -11,10 +10,15 @@ couleurs = ['red','purple', 'pink', 'lightpink', 'yellow']
 
 def change():
     global couleur
+    couleurold = couleur
     couleur = choice(couleurs)
+    while couleur == couleurold:
+        couleur = choice(couleurs)
+    return couleur
     
 
 def rectangle():
+    global c
     global couleur
     x1=randint(0,400)
     x2=randint(0,400)
@@ -22,6 +26,9 @@ def rectangle():
     y2=randint(0,400)
     fenetreDessin.create_rectangle(x1, y1, x2, y2, fill=couleur)
     change()
+    if couleur == 'red':
+        c += 1
+        compteur.configure(c)
     
 def quitter():
     maFenetre.quit()
@@ -48,8 +55,6 @@ compteur.grid(column = 3, row = 2)
 
 
 #Programme Principal
-if couleur == 'red':
-    c += 1
-    compteur.configure(c)
+
 
 maFenetre.mainloop()
